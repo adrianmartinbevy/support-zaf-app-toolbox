@@ -5,9 +5,9 @@ import {User} from '../types'
 
 const UserContext = createContext<User>({} as User)
 
-const UserProvider: React.FC = ({
+const UserProvider: React.FC<PropsWithChildren<Record<never, any>>> = ({
   children,
-}: PropsWithChildren<Record<never, any>>) => {
+}) => {
   let {data} = useClientGet<User>('currentUser')
 
   if (!data) {

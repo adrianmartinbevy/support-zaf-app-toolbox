@@ -5,9 +5,9 @@ import {Ticket} from '../types'
 
 const TicketContext = createContext<Ticket>({} as Ticket)
 
-const TicketProvider: React.FC = ({
+const TicketProvider: React.FC<PropsWithChildren<Record<never, any>>> = ({
   children,
-}: PropsWithChildren<Record<never, any>>) => {
+}) => {
   let {data} = useClientGet<Ticket>('ticket')
 
   if (!data) {

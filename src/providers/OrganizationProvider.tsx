@@ -5,9 +5,9 @@ import {Organization} from '../types'
 
 const OrganizationContext = createContext<Organization>({} as Organization)
 
-const OrganizationProvider: React.FC = ({
+const OrganizationProvider: React.FC<PropsWithChildren<Record<never, any>>> = ({
   children,
-}: PropsWithChildren<Record<never, any>>) => {
+}) => {
   let {data} = useClientGet<Organization>('organization')
 
   if (!data) {
