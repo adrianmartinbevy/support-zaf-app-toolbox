@@ -57,18 +57,23 @@ export interface User {
   name: string
   email: string
   status: string
+  alias?: string
+  avatarUrl?: string
   invited: boolean | null
   confirmed: boolean
   phone: string | null
+  signature?: string
   role: string
   roles: Role[]
   group: Group | null
+  groups?: Group[]
   reportsTo: number | null
   timezone: string | null
   createdAt: string
   updatedAt: string
   deletedAt: string | null
   locale: string
+  organizations?: Organization[]
 }
 
 export interface Group {
@@ -91,6 +96,10 @@ export interface Ticket {
 export interface Organization {
   id: number
   name: string
+  domainNames?: string[]
+  group: Group | null
+  sharedTickets: boolean
+  sharedComments: boolean
 }
 
 export enum FeedbackStatus {
