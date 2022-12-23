@@ -1,11 +1,13 @@
-import React, {createContext, useContext} from 'react'
+import React, {createContext, PropsWithChildren, useContext} from 'react'
 
 import useClientGet from '../hooks/useClientGet'
 import {Organization} from '../types'
 
 const OrganizationContext = createContext<Organization>({} as Organization)
 
-const OrganizationProvider: React.FC = ({children}) => {
+const OrganizationProvider: React.FC = ({
+  children,
+}: PropsWithChildren<Record<never, any>>) => {
   let {data} = useClientGet<Organization>('organization')
 
   if (!data) {

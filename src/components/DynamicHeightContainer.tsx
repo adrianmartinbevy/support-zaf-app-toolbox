@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {PropsWithChildren} from 'react'
 
 import useDynamicAppHeight from '../hooks/useDynamicAppHeight'
 
-export const DynamicHeightContainer: React.FC = ({children}) => {
+export const DynamicHeightContainer: React.FC<PropsWithChildren> = ({
+  children,
+}) => {
   const appHeightRef = useDynamicAppHeight()
 
   return (

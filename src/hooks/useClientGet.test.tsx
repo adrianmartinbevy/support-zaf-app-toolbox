@@ -1,12 +1,12 @@
+import {mount} from 'enzyme'
 import * as React from 'react'
 import {useCallback, useState} from 'react'
-import {mount} from 'enzyme'
 import {act} from 'react-dom/test-utils'
 
 import {ZAFClientContextProvider} from '../providers/ZAFClientContext'
+import flushPromises from '../test/flushPromises'
 import {Client, FeedbackStatus} from '../types'
 import useClientGet from './useClientGet'
-import flushPromises from '../test/flushPromises'
 
 describe('useClientGet', () => {
   const Dummy = (prop: any) => <div />

@@ -1,11 +1,13 @@
-import React, {createContext, useContext} from 'react'
+import React, {createContext, PropsWithChildren, useContext} from 'react'
 
 import useClientGet from '../hooks/useClientGet'
 import {User} from '../types'
 
 const UserContext = createContext<User>({} as User)
 
-const UserProvider: React.FC = ({children}) => {
+const UserProvider: React.FC = ({
+  children,
+}: PropsWithChildren<Record<never, any>>) => {
   let {data} = useClientGet<User>('currentUser')
 
   if (!data) {
